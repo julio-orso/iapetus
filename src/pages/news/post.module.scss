@@ -1,0 +1,48 @@
+.post {
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  div {
+    margin-top: 2rem;
+    line-height: 1.5;
+    img {
+      margin: 0 auto;
+      max-width: 100%;
+      border-radius: 0.75rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+      margin: 1rem 0 1rem;
+      list-style: disc;
+      li::marker {
+        color: var(--green);
+      }
+      li + li {
+        margin-top: 0.5rem;
+      }
+    }
+    h2 {
+      font-size: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    a {
+      color: #6599f3;
+      transition: all 0.2s ease 0s;
+      text-decoration: underline solid transparent 2px;
+      &:hover {
+        color: #1966ec;
+        text-decoration-color: #1966ec;
+      }
+    }
+    p:last-child {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      strong {
+        font-weight: 500;
+      }
+    }
+  }
+}

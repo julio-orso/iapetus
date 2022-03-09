@@ -1,0 +1,61 @@
+.agenda {
+  .link {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    p {
+      padding-bottom: 1rem;
+    }
+    .a {
+      margin: auto;
+      display: block;
+      max-width: 22rem;
+      padding: 0.75rem;
+      color: var(--white);
+      border-radius: 0.75rem;
+      background: var(--green);
+      transition: background 0.2s ease 0s;
+      &:hover {
+        background: var(--green-dark);
+      }
+    }
+  }
+  .tables {
+    overflow: auto;
+    table {
+      width: 100%;
+      border-spacing: 0;
+      font-size: 0.875rem;
+      border-radius: 0.75rem;
+      background: var(--white);
+      border-collapse: collapse;
+      th {
+        padding: 0.5rem;
+        text-align: left;
+        font-weight: 500;
+      }
+      th:first-child {
+        text-align: center;
+        font-size: 1rem;
+        padding: 0.75rem;
+      }
+      td {
+        padding: 0.5rem;
+        white-space: nowrap;
+      }
+      tr:nth-child(odd) {
+        background: var(--gray-950);
+      }
+      td + td,
+      th + th {
+        border-left: 1px solid var(--gray-900);
+      }
+      thead tr {
+        border-bottom: 1px solid var(--gray-900);
+      }
+      tr + tr {
+        border-top: 1px solid var(--gray-900);
+      }
+    }
+  }
+}
