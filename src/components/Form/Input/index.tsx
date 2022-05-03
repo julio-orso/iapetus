@@ -1,39 +1,20 @@
-import styles from './styles.module.scss';
-interface IProps {
+import { InputHTMLAttributes } from 'react';
+import styles from '../styles.module.scss';
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string;
   name?: string;
-  value: string;
   label?: string;
-  required?: boolean;
-  placeholder?: string;
-  onChange: (value: any) => void;
 }
-export function Input({
-  label,
-  value,
-  type,
-  required,
-  name,
-  placeholder,
-  onChange,
-}: IProps) {
+export function Input({ label, name, ...rest }: IProps) {
   return (
     <div className={styles.wrapper}>
       {/* · */}
       {label && (
-        <label htmlFor={name} className={styles.label}>
-          {label} <span>*</span>
+        <label htmlFor={name}>
+          {label} <s>*</s>
         </label>
       )}
-      <input
-        id={name}
-        type={type}
-        value={value}
-        required={required}
-        onChange={onChange}
-        className={styles.input}
-        placeholder={placeholder}
-      />
+      <input id={name} className={styles.input} {...rest} />
     </div>
   );
 }

@@ -1,36 +1,19 @@
-import styles from './styles.module.scss';
-interface IProps {
+import { TextareaHTMLAttributes } from 'react';
+import styles from '../styles.module.scss';
+interface IProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   name?: string;
-  value: string;
   label?: string;
-  required?: boolean;
-  placeholder?: string;
-  onChange: (value: any) => void;
 }
-export function Textarea({
-  label,
-  value,
-  required,
-  name,
-  placeholder,
-  onChange,
-}: IProps) {
+export function Textarea({ label, name, ...rest }: IProps) {
   return (
     <div className={styles.wrapper}>
       {label && (
-        <label htmlFor={name} className={styles.label}>
-          {label} <span>*</span>
+        <label htmlFor={name}>
+          {label} <s>*</s>
         </label>
       )}
       <div>
-        <textarea
-          id={name}
-          value={value}
-          required={required}
-          onChange={onChange}
-          placeholder={placeholder}
-          className={styles.textarea}
-        ></textarea>
+        <textarea id={name} className={styles.textarea} {...rest}></textarea>
       </div>
     </div>
   );

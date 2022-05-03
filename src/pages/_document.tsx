@@ -4,6 +4,10 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta
+            name="description"
+            content="Serviços O cliente é a prioridade da Contábil Vitória, que visa mantê-lo informado e buscando soluções rápidas e seguras, para que no mundo acelerado as avaliações e decisões aconteçam com velocidade, a fim de que o cliente não perca tempo nem dinheiro."
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link

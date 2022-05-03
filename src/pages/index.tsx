@@ -1,7 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
 import { GetStaticProps } from 'next';
 import { RichText } from 'prismic-dom';
 import Prismic from '@prismicio/client';
@@ -26,7 +24,7 @@ export default function Home({ posts }: PostsProps) {
         <title>Soluções Contábeis - Contábil Vitória</title>
         <meta name="title" content="Soluções Contábeis - Contábil Vitória" />
       </Head>
-      <main className={styles.home}>
+      <main>
         <section className={styles.banner}>
           <div className={`${styles.content} container`}>
             <div className={styles.texts}>
@@ -42,24 +40,22 @@ export default function Home({ posts }: PostsProps) {
                 </a>
               </Link>
             </div>
-            <Image
+            <img
+              alt="Hero Image"
               src="/image-banner.svg"
-              alt="Image banner"
-              width={464}
-              height={413}
+              className={styles.heroImage}
             />
           </div>
         </section>
-        <section className={styles.services}>
-          <ListServices />
+        <section>
+          <ListServices listServices />
         </section>
         <section className={`${styles.news} container`}>
           <h2 className={styles.subtitle}>Notícias</h2>
           <div className={styles.posts}>
             {posts.map((post) => (
-              // eslint-disable-next-line react/jsx-key
-              <Link href={`/news/${post.slug}`}>
-                <a key={post.slug}>
+              <Link href={`/news/${post.slug}`} key={post.slug}>
+                <a>
                   <div>
                     <time>{post.updatedAt}</time>
                     <h2>{post.title}</h2>
@@ -122,6 +118,5 @@ export const getStaticProps: GetStaticProps = async () => {
       ),
     };
   });
-
-  return { props: { posts } };
+  return { props: { posts }, revalidate: 60 * 30 };
 };

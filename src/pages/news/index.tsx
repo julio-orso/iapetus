@@ -1,11 +1,11 @@
-import { Title } from '../../components/Title';
+import Head from 'next/head';
+import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import Prismic from '@prismicio/client';
 import { RichText } from 'prismic-dom';
 import styles from './styles.module.scss';
-import Link from 'next/link';
+import { Title } from '../../components/Title';
 import { getPrismicClient } from '../../services/prismic';
-import Head from 'next/head';
 type Post = {
   slug: string;
   title: string;
@@ -22,13 +22,12 @@ export default function News({ posts }: PostsProps) {
         <title>Notícias - Contábil Vitória</title>
         <meta name="title" content="Notícias - Contábil Vitória" />
       </Head>
-      <main className={`container content`}>
+      <main className="container content">
         <Title title="Notícias" />
         <div className={styles.posts}>
           {posts.map((post) => (
-            // eslint-disable-next-line react/jsx-key
-            <Link href={`/news/${post.slug}`}>
-              <a key={post.slug}>
+            <Link href={`/news/${post.slug}`} key={post.slug}>
+              <a>
                 <div>
                   <time>{post.createdAt}</time>
                   <h2>{post.title}</h2>
@@ -42,7 +41,6 @@ export default function News({ posts }: PostsProps) {
     </>
   );
 }
-
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
   const response = await prismic.query(
@@ -50,7 +48,6 @@ export const getStaticProps: GetStaticProps = async () => {
     {
       fetch: ['publication.title', 'publication.content'],
       orderings: '[document.last_publication_date desc]',
-      pageSize: 100,
     },
   );
   const posts = response.results.map((post) => {
@@ -70,6 +67,5 @@ export const getStaticProps: GetStaticProps = async () => {
       ),
     };
   });
-
-  return { props: { posts } };
+  return { props: { posts }, revalidate: 60 * 30 };
 };

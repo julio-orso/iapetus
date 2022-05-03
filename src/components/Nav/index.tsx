@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import useMedia from '../../hooks/useMedia';
 import { ActiveLink } from '../ActiveLink';
-import { ButtonMenu } from '../ButtonMenu';
 import styles from './styles.module.scss';
 
 export function Nav() {
@@ -13,7 +12,14 @@ export function Nav() {
   return (
     <>
       {mobile && (
-        <ButtonMenu onClick={() => setMobileMenu(!mobileMenu)} mobileMenu />
+        <button
+          type="button"
+          aria-label="Menu"
+          className={`${styles.button} ${mobileMenu && styles.buttonActive}`}
+          onClick={() => setMobileMenu(!mobileMenu)}
+        >
+          <div />
+        </button>
       )}
       {mobileMenu && (
         <div
