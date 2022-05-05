@@ -14,25 +14,15 @@ export default function Services() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  // async function handleSubmit(e: FormEvent) {
-  //   e.preventDefault();
-  //   if (!name.trim() || !email.trim() || !message.trim()) {
-  //     toast('Preencha todos os campos para enviar sua mensagem!');
-  //     return;
-  //   }
-  //   await sendContactMail(name);
-  // }
   const [loading, setLoading] = useState(false);
-
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    console.log(name, email, message);
     if (loading) return;
     if (!name.trim() || !email.trim() || !message.trim()) {
       toast('Preencha todos os campos para enviar sua mensagem!', {
         style: {
           background: 'var(--green)',
-          color: '#fff',
+          color: 'var(--white)',
         },
       });
       return;
@@ -44,18 +34,17 @@ export default function Services() {
       setName('');
       setEmail('');
       setMessage('');
-
       toast('Mensagem enviada com sucesso!', {
         style: {
-          background: '#00000',
-          color: '#fff',
+          background: '#31aa39',
+          color: 'var(--white)',
         },
       });
     } catch (error) {
       toast('Ocorreu um erro ao tentar enviar sua mensagem. Tente novamente!', {
         style: {
-          background: 'red',
-          color: '#fff',
+          background: '#f64540',
+          color: 'var(--white)',
         },
       });
     } finally {

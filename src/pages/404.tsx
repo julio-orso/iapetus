@@ -15,7 +15,6 @@ export default function PageNotFound() {
             alt="Image Page Not Found"
             className={styles.hero}
           />
-
           <h2>Página não encontrada</h2>
           <p>Desculpe, página não encontrada</p>
           <Link href="/">
