@@ -19,7 +19,7 @@ export default function Agenda() {
         <div className={styles.link}>
           <p>
             Se preferir acesse o site da Receita Federal (escolha o Mês e clique
-            em "Data de Vencimento")
+            em {`"Data de Vencimento"`})
           </p>
           <Link href="https://www.gov.br/pt-br">
             <a className={styles.a} target="_blank">
