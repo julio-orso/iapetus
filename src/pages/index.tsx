@@ -30,8 +30,8 @@ export default function Home({ posts }: PostsProps) {
             <div className={styles.texts}>
               <h1>O que a Contabilidade pode fazer pela sua empresa?</h1>
               <blockquote>
-                "Deixe a contabilidade fazer parte do sucesso da sua empresa,
-                como ciência que lhe ensina a usar os números ao seu favor."
+                {`"Deixe a contabilidade fazer parte do sucesso da sua empresa,
+                como ciência que lhe ensina a usar os números ao seu favor."`}
               </blockquote>
               <Link href="/contact">
                 <a>
