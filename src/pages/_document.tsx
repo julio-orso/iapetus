@@ -16,6 +16,12 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+          {/* Google Adsense */}
+          <script
+            data-ad-client="<Your value here>"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
           {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
           <script
             async
