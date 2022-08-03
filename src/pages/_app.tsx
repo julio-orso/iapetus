@@ -47,6 +47,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
        gtag('config', 'UA-158569684-3');
        `}
       </Script>
+      <Header />
       <Toaster position="bottom-right" />
       <Component {...pageProps} />
       <Footer />
