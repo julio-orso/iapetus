@@ -6,6 +6,18 @@ import { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import * as gtag from '../lib/gtag';
+import Script from 'next/script';
+
+// <!-- Global site tag (gtag.js) - Google Analytics -->
+// <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158569684-3"></script>
+// <script>
+//   window.dataLayer = window.dataLayer || [];
+//   function gtag(){dataLayer.push(arguments);}
+//   gtag('js', new Date());
+
+//   gtag('config', 'UA-158569684-3');
+// </script>
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   useEffect(() => {
@@ -19,9 +31,22 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       router.events.off('hashChangeComplete', handleRouteChange);
     };
   }, [router.events]);
+
   return (
     <>
-      <Header />
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=UA-158569684-3`}
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+
+       gtag('config', 'UA-158569684-3');
+       `}
+      </Script>
       <Toaster position="bottom-right" />
       <Component {...pageProps} />
       <Footer />

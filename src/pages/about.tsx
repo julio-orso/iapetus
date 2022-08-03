@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import { Title } from '../components/Title';
-import styles from '../styles/pages/about.module.scss';
+import Head from "next/head";
+import { Title } from "../components/Title";
+import styles from "../styles/pages/about.module.scss";
 export default function About() {
   return (
     <>
@@ -27,10 +27,7 @@ export default function About() {
             colaboradores, buscando assim uma maior aproximação com os clientes,
             além de visitas periódicas para orientação.
           </p>
-          <i>
-            Os sócios: Severino Camilo Giacomini (CRC-SC 16.794/O-3) e Rossilane
-            Fatima Joaquim Neves (CRC-SC 029268/O-3)
-          </i>
+          <i>Os sócios: Severino Camilo Giacomini (CRC-SC 16.794/O-3)</i>
         </div>
       </main>
     </>

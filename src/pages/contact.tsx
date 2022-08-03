@@ -101,7 +101,6 @@ export default function Services() {
             <Mail />
             <p>
               (49) 3566-1014 / 99921-6037 <br />
-              rossilane@contabilvitoria.net.br
             </p>
           </div>
           <div>

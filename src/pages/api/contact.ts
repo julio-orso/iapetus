@@ -5,6 +5,7 @@ const email = process.env.MAIL_ADDRESS;
 const transporter = nodemailer.createTransport(
   sendGridTransport({ auth: { api_key: process.env.SENDGRID_API_KEY } }),
 );
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (request: NextApiRequest, response: NextApiResponse) => {
   try {
     const { senderMail, name, content } = request.body;

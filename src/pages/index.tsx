@@ -83,7 +83,7 @@ export default function Home({ posts }: PostsProps) {
               <i>
                 <Notebook />
               </i>
-              <span>Confira a Agenda Tributária </span>
+              <span>Confira a Agenda Tributária</span>
             </a>
           </Link>
         </section>
