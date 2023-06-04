@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import { Title } from '../components/Title';
-import { ListServices } from '../components/ListServices';
+import Head from 'next/head'
+import { Title } from '../components/Title'
+import { ListServices } from '../components/ListServices'
 export default function Services() {
   return (
     <>
@@ -13,5 +13,5 @@ export default function Services() {
         <ListServices listServices desCalculator desDiagram desPersonalCard />
       </main>
     </>
-  );
+  )
 }

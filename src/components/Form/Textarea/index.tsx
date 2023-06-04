@@ -1,8 +1,8 @@
-import { TextareaHTMLAttributes } from 'react';
-import styles from '../styles.module.scss';
+import { TextareaHTMLAttributes } from 'react'
+import styles from '../styles.module.scss'
 interface IProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  name?: string;
-  label?: string;
+  name?: string
+  label?: string
 }
 export function Textarea({ label, name, ...rest }: IProps) {
   return (
@@ -16,5 +16,5 @@ export function Textarea({ label, name, ...rest }: IProps) {
         <textarea id={name} className={styles.textarea} {...rest}></textarea>
       </div>
     </div>
-  );
+  )
 }

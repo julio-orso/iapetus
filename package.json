@@ -25,6 +25,7 @@
     "sass": "^1.49.8"
   },
   "devDependencies": {
+    "@rocketseat/eslint-config": "^1.2.0",
     "@types/gtag.js": "^0.0.10",
     "@types/node": "17.0.18",
     "@types/nodemailer": "^6.4.4",

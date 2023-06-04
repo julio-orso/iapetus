@@ -1,9 +1,10 @@
-import Link from 'next/link';
-import Head from 'next/head';
-import { Title } from '../components/Title';
-import { TableBig } from '../components/TableBig';
-import { TableSmall } from '../components/TableSmall';
-import styles from '../styles/pages/agenda.module.scss';
+import Head from 'next/head'
+import Link from 'next/link'
+import { TableBig } from '../components/TableBig'
+import { TableSmall } from '../components/TableSmall'
+import { Title } from '../components/Title'
+import styles from '../styles/pages/agenda.module.scss'
+
 export default function Agenda() {
   return (
     <>
@@ -21,7 +22,7 @@ export default function Agenda() {
             Se preferir acesse o site da Receita Federal (escolha o Mês e clique
             em {`"Data de Vencimento"`})
           </p>
-          <Link href="https://www.gov.br/pt-br">
+          <Link href="https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria">
             <a className={styles.a} target="_blank">
               Agenda Tributária da Receita Federal
             </a>
@@ -32,5 +33,5 @@ export default function Agenda() {
         </div>
       </main>
     </>
-  );
+  )
 }

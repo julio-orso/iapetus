@@ -1,6 +1,6 @@
-import Head from "next/head";
-import { Title } from "../components/Title";
-import styles from "../styles/pages/about.module.scss";
+import Head from 'next/head'
+import { Title } from '../components/Title'
+import styles from '../styles/pages/about.module.scss'
 export default function About() {
   return (
     <>
@@ -31,5 +31,5 @@ export default function About() {
         </div>
       </main>
     </>
-  );
+  )
 }

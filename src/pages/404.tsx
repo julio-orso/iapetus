@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import styles from '../styles/pages/pageNotFound.module.scss';
+import Head from 'next/head'
+import Link from 'next/link'
+import styles from '../styles/pages/pageNotFound.module.scss'
 export default function PageNotFound() {
   return (
     <>
@@ -23,5 +23,5 @@ export default function PageNotFound() {
         </section>
       </main>
     </>
-  );
+  )
 }

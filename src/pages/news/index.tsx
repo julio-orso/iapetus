@@ -1,19 +1,19 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import { GetStaticProps } from 'next';
-import Prismic from '@prismicio/client';
-import { RichText } from 'prismic-dom';
-import styles from './styles.module.scss';
-import { Title } from '../../components/Title';
-import { getPrismicClient } from '../../services/prismic';
+import Head from 'next/head'
+import Link from 'next/link'
+import { GetStaticProps } from 'next'
+import Prismic from '@prismicio/client'
+import { RichText } from 'prismic-dom'
+import styles from './styles.module.scss'
+import { Title } from '../../components/Title'
+import { getPrismicClient } from '../../services/prismic'
 type Post = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  createdAt: string;
-};
+  slug: string
+  title: string
+  excerpt: string
+  createdAt: string
+}
 interface PostsProps {
-  posts: Post[];
+  posts: Post[]
 }
 export default function News({ posts }: PostsProps) {
   return (
@@ -39,17 +39,17 @@ export default function News({ posts }: PostsProps) {
         </div>
       </main>
     </>
-  );
+  )
 }
 export const getStaticProps: GetStaticProps = async () => {
-  const prismic = getPrismicClient();
+  const prismic = getPrismicClient()
   const response = await prismic.query(
     [Prismic.predicates.at('document.type', 'publication')],
     {
       fetch: ['publication.title', 'publication.content'],
       orderings: '[document.last_publication_date desc]',
     },
-  );
+  )
   const posts = response.results.map((post) => {
     return {
       slug: post.uid,
@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps = async () => {
           year: 'numeric',
         },
       ),
-    };
-  });
-  return { props: { posts }, revalidate: 60 * 30 };
-};
+    }
+  })
+  return { props: { posts }, revalidate: 60 * 30 }
+}

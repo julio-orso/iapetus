@@ -1,15 +1,16 @@
-import Head from 'next/head';
-import { RichText } from 'prismic-dom';
-import { GetServerSideProps } from 'next';
-import { getPrismicClient } from '../../services/prismic';
-import styles from './post.module.scss';
+/* eslint-disable no-redeclare */
+import { GetServerSideProps } from 'next'
+import Head from 'next/head'
+import { RichText } from 'prismic-dom'
+import { getPrismicClient } from '../../services/prismic'
+import styles from './post.module.scss'
 interface Post {
-  slug: string;
-  title: string;
-  content: string;
+  slug: string
+  title: string
+  content: string
 }
 interface PostProps {
-  post: Post;
+  post: Post
 }
 export default function Post({ post }: PostProps) {
   return (
@@ -28,19 +29,19 @@ export default function Post({ post }: PostProps) {
         </article>
       </main>
     </>
-  );
+  )
 }
 export const getServerSideProps: GetServerSideProps = async ({
   req,
   params,
 }) => {
-  const { slug }: any = params;
-  const prismic = getPrismicClient(req);
-  const response = await prismic.getByUID('publication', String(slug), {});
+  const { slug }: any = params
+  const prismic = getPrismicClient(req)
+  const response = await prismic.getByUID('publication', String(slug), {})
   const post = {
     slug,
     title: RichText.asText(response.data.title),
     content: RichText.asHtml(response.data.content),
-  };
-  return { props: { post } };
-};
+  }
+  return { props: { post } }
+}

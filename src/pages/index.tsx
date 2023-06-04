@@ -1,21 +1,21 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import { GetStaticProps } from 'next';
-import { RichText } from 'prismic-dom';
-import Prismic from '@prismicio/client';
-import Notebook from '../assets/notebook.svg';
-import ArrowLeft from '../assets/arrow-left.svg';
-import styles from '../styles/pages/home.module.scss';
-import { getPrismicClient } from '../services/prismic';
-import { ListServices } from '../components/ListServices';
+import Head from 'next/head'
+import Link from 'next/link'
+import { GetStaticProps } from 'next'
+import { RichText } from 'prismic-dom'
+import Prismic from '@prismicio/client'
+import Notebook from '../assets/notebook.svg'
+import ArrowLeft from '../assets/arrow-left.svg'
+import styles from '../styles/pages/home.module.scss'
+import { getPrismicClient } from '../services/prismic'
+import { ListServices } from '../components/ListServices'
 type Post = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  updatedAt: string;
-};
+  slug: string
+  title: string
+  excerpt: string
+  updatedAt: string
+}
 interface PostsProps {
-  posts: Post[];
+  posts: Post[]
 }
 export default function Home({ posts }: PostsProps) {
   return (
@@ -89,10 +89,10 @@ export default function Home({ posts }: PostsProps) {
         </section>
       </main>
     </>
-  );
+  )
 }
 export const getStaticProps: GetStaticProps = async () => {
-  const prismic = getPrismicClient();
+  const prismic = getPrismicClient()
   const response = await prismic.query(
     [Prismic.predicates.at('document.type', 'publication')],
     {
@@ -100,7 +100,7 @@ export const getStaticProps: GetStaticProps = async () => {
       orderings: '[document.last_publication_date desc]',
       pageSize: 3,
     },
-  );
+  )
   const posts = response.results.map((post) => {
     return {
       slug: post.uid,
@@ -116,7 +116,7 @@ export const getStaticProps: GetStaticProps = async () => {
           year: 'numeric',
         },
       ),
-    };
-  });
-  return { props: { posts }, revalidate: 60 * 30 };
-};
+    }
+  })
+  return { props: { posts }, revalidate: 60 * 30 }
+}

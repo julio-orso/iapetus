@@ -1,21 +1,21 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from './styles.module.scss';
-import { ActiveLink } from '../ActiveLink';
-import Facebook from '../../assets/facebook.svg';
-import IconButtonTop from '../../assets/top.svg';
-import Instagram from '../../assets/instagram.svg';
+import Link from 'next/link'
+import Image from 'next/image'
+import styles from './styles.module.scss'
+import { ActiveLink } from '../ActiveLink'
+import Facebook from '../../assets/facebook.svg'
+import IconButtonTop from '../../assets/top.svg'
+import Instagram from '../../assets/instagram.svg'
 
-import React from 'react';
+import React from 'react'
 export function Footer() {
-  const [date, setDate] = React.useState(0);
-  const getYear = () => setDate(new Date().getFullYear());
-  React.useEffect(() => getYear(), []);
+  const [date, setDate] = React.useState(0)
+  const getYear = () => setDate(new Date().getFullYear())
+  React.useEffect(() => getYear(), [])
   function scrollToTop() {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
-    });
+    })
   }
   return (
     <footer className={styles.footer}>
@@ -93,5 +93,5 @@ export function Footer() {
         </div>
       </nav>
     </footer>
-  );
+  )
 }

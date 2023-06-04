@@ -1,54 +1,54 @@
-import Head from 'next/head';
-import { FormEvent, useState } from 'react';
-import { Title } from '../components/Title';
-import { Input } from '../components/Form/Input';
-import { Textarea } from '../components/Form/Textarea';
-import styles from '../styles/pages/contact.module.scss';
-import Location from '../assets/location.svg';
-import Clock from '../assets/clock.svg';
-import Mail from '../assets/mail.svg';
-import { sendContactMail } from '../services/sendMail';
-import toast from 'react-hot-toast';
+import Head from 'next/head'
+import { FormEvent, useState } from 'react'
+import { Title } from '../components/Title'
+import { Input } from '../components/Form/Input'
+import { Textarea } from '../components/Form/Textarea'
+import styles from '../styles/pages/contact.module.scss'
+import Location from '../assets/location.svg'
+import Clock from '../assets/clock.svg'
+import Mail from '../assets/mail.svg'
+import { sendContactMail } from '../services/sendMail'
+import toast from 'react-hot-toast'
 
 export default function Services() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [loading, setLoading] = useState(false)
   async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (loading) return;
+    e.preventDefault()
+    if (loading) return
     if (!name.trim() || !email.trim() || !message.trim()) {
       toast('Preencha todos os campos para enviar sua mensagem!', {
         style: {
           background: 'var(--green)',
           color: 'var(--white)',
         },
-      });
-      return;
+      })
+      return
     }
 
     try {
-      setLoading(true);
-      await sendContactMail(name, email, message);
-      setName('');
-      setEmail('');
-      setMessage('');
+      setLoading(true)
+      await sendContactMail(name, email, message)
+      setName('')
+      setEmail('')
+      setMessage('')
       toast('Mensagem enviada com sucesso!', {
         style: {
           background: '#31aa39',
           color: 'var(--white)',
         },
-      });
+      })
     } catch (error) {
       toast('Ocorreu um erro ao tentar enviar sua mensagem. Tente novamente!', {
         style: {
           background: '#f64540',
           color: 'var(--white)',
         },
-      });
+      })
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   }
   return (
@@ -119,5 +119,5 @@ export default function Services() {
         </section>
       </main>
     </>
-  );
+  )
 }

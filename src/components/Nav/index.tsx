@@ -1,14 +1,14 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import useMedia from '../../hooks/useMedia';
-import { ActiveLink } from '../ActiveLink';
-import styles from './styles.module.scss';
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import useMedia from '../../hooks/useMedia'
+import { ActiveLink } from '../ActiveLink'
+import styles from './styles.module.scss'
 
 export function Nav() {
-  const mobile = useMedia('(max-width: 768px)');
-  const [mobileMenu, setMobileMenu] = useState(false);
-  const { pathname } = useRouter();
-  useEffect(() => setMobileMenu(false), [pathname]);
+  const mobile = useMedia('(max-width: 768px)')
+  const [mobileMenu, setMobileMenu] = useState(false)
+  const { pathname } = useRouter()
+  useEffect(() => setMobileMenu(false), [pathname])
   return (
     <>
       {mobile && (
@@ -61,5 +61,5 @@ export function Nav() {
         </ul>
       </nav>
     </>
-  );
+  )
 }

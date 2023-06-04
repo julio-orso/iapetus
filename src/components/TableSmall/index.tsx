@@ -1,4 +1,4 @@
-import TableTr3x from '../TableTr3x';
+import TableTr3x from '../TableTr3x'
 export function TableSmall() {
   return (
     <table>
@@ -16,11 +16,7 @@ export function TableSmall() {
         </tr>
       </thead>
       <tbody>
-        <TableTr3x
-          td1="Salários"
-          td2="Até o dia 5"
-          td3="Antecipa para o 1º dia útil"
-        />
+        <TableTr3x td1="Salários" td2="Até o dia 5º dia útil" td3="-" />
         <TableTr3x
           td1="Salários Empregado Doméstico"
           td2="Até o dia 7"
@@ -39,7 +35,7 @@ export function TableSmall() {
         />
         <TableTr3x
           td1="13º salário"
-          td2="Até 20 de novembro"
+          td2="Até 20 de dezembro"
           td3="Antecipa para o 1º dia útil"
         />
         <TableTr3x
@@ -64,5 +60,5 @@ export function TableSmall() {
         />
       </tbody>
     </table>
-  );
+  )
 }

@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import styles from './styles.module.scss';
+import Image from 'next/image'
+import styles from './styles.module.scss'
 interface IProps {
-  listServices?: any;
-  desDiagram?: boolean;
-  desCalculator?: boolean;
-  desPersonalCard?: boolean;
+  listServices?: any
+  desDiagram?: boolean
+  desCalculator?: boolean
+  desPersonalCard?: boolean
 }
 export function ListServices({
   desDiagram,
@@ -78,5 +78,5 @@ export function ListServices({
         )}
       </div>
     </div>
-  );
+  )
 }

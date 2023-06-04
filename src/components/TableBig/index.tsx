@@ -1,4 +1,4 @@
-import TableTr from '../TableTr';
+import TableTr from '../TableTr'
 export function TableBig() {
   return (
     <table style={{ marginTop: '3rem' }}>
@@ -123,5 +123,5 @@ export function TableBig() {
         />
       </tbody>
     </table>
-  );
+  )
 }

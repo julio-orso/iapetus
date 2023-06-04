@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
-import Logo from '../../assets/logo.svg';
-import { Nav } from '../Nav';
+import Link from 'next/link'
+import styles from './styles.module.scss'
+import Logo from '../../assets/logo.svg'
+import { Nav } from '../Nav'
 
 export function Header() {
   return (
@@ -17,5 +17,5 @@ export function Header() {
         </div>
       </nav>
     </header>
-  );
+  )
 }
